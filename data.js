@@ -86,7 +86,7 @@ var APP_DATA = {
           "yaw": -2.9680695419168366,
           "pitch": -0.05965844289494626,
           "title": "This is a Test",
-          "text": "Here is your text:&nbsp;https://placehold.co/"
+          "text": "Here is your text: <a href='https://placehold.co/' target='_blank'>https://placehold.co/</a>"
         }
       ]
     }
