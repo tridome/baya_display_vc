@@ -22,10 +22,10 @@ html, body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: 16px;
   background-color: #000;
-  color: #fff;
+  color: #2b2d2d;
 }
 
 a, a:hover, a:active, a:visited {
@@ -80,7 +80,7 @@ body.multiple-scenes.mobile #titleBar {
   line-height: 30px;
   padding: 5px;
   background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: #eae2decc;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -104,7 +104,7 @@ body.multiple-scenes.mobile #titleBar {
   height: 40px;
   padding: 5px;
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #c91c499c;
 }
 
 .mobile #fullscreenToggle {
@@ -154,7 +154,7 @@ body.fullscreen-enabled #fullscreenToggle {
   height: 40px;
   padding: 5px;
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #c91c499c;
 }
 
 .mobile #autorotateToggle {
@@ -208,7 +208,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   height: 40px;
   padding: 5px;
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #c91c499c;
 }
 
 .mobile #sceneListToggle {
@@ -274,7 +274,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #sceneList .scenes {
   width: 100%;
   background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: #eae2decc;
 }
 
 .mobile #sceneList {
@@ -321,12 +321,12 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 .no-touch #sceneList .scene:hover {
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #A59C95cc;
 }
 
 #sceneList .scene.current {
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #a59c95cc;
 }
 
 /* Hide scene list when only a single scene exists */
@@ -377,7 +377,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-radius: 5px;
 
   background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: #a59c95cc;
 
   color: #fff;
 
@@ -453,7 +453,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background-color: rgb(103,115,131);
+  background-color: #a59c95;
   cursor: pointer;
   -webkit-transition: width 0.3s ease-in-out 0.5s,
                       border-radius 0.3s ease-in-out 0.5s;
@@ -553,7 +553,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 40px;
   width: 40px;
   border-top-right-radius: 5px;
-  background-color: rgb(78,88,104);
+  background-color: #8d847ccc;
   visibility: hidden;
   -ms-transform: perspective(200px) rotateY(90deg);
   -webkit-transform: perspective(200px) rotateY(90deg);
@@ -600,7 +600,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   top: 40px;
   left: 0;
   padding: 10px;
-  background-color: rgb(58,68,84);
+  background-color: #eae2de;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   overflow-y: auto;
@@ -656,7 +656,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   height: 100%;
   overflow: hidden;
   z-index: 11000 !important;
-  background-color: rgba(0,0,0,.5);
+  background-color: #eae2decc;
   line-height: 1.2em;
   opacity: 0;
   visibility: hidden;
@@ -682,8 +682,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   right: 10px;
   width: auto;
   height: 50px;
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #eae2de;
+  background-color: #eae2decc;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out 0.2s;
   transition: opacity 0.3s ease-in-out 0.2s;
@@ -739,8 +739,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   right: 0;
   width: 50px;
   height: 50px;
-  background-color: rgb(78,88,104);
-  background-color: rgba(78,88,104,0.8);
+  background-color: #eae2de;
+  background-color: #eae2decc;
   cursor: pointer;
 }
 
@@ -757,8 +757,8 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   left: 10px;
   right: 10px;
   padding: 10px;
-  background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: #eae2de;
+  background-color: #eae2decc;
   overflow-y: auto;
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out;
@@ -781,13 +781,14 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .viewControlButton {
   display: none;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 50%;
   width: 40px;
   height: 40px;
   padding: 5px;
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: #c91c49cc;
+  border-radius: 50%;
 }
 
 body.view-control-buttons .viewControlButton {
