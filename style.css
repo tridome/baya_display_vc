@@ -1,3 +1,7 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -84,7 +88,10 @@ body.multiple-scenes.mobile #titleBar {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+  line-height: 2;
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
@@ -275,6 +282,10 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   width: 100%;
   background-color: rgb(58,68,84);
   background-color: #eae2decc;
+    text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  line-height: 2;
 }
 
 .mobile #sceneList {
@@ -344,6 +355,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 0.9;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
 }
 
 .no-touch .link-hotspot:hover {
@@ -431,409 +445,705 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 /* Info hotspot */
+
 .info-hotspot {
-    line-height: 1.2em;
-    opacity: 0.9;
-    -webkit-transition: opacity 0.2s 0.2s;
-    transition: opacity 0.2s 0.2s;
+  line-height: 1.2em;
+  opacity: 0.9;
+  -webkit-transition: opacity 0.2s 0.2s;
+  transition: opacity 0.2s 0.2s;
 }
 
 .no-touch .info-hotspot:hover {
-    opacity: 1;
-    -webkit-transition: opacity 0.2s;
-    transition: opacity 0.2s;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .info-hotspot.visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 .info-hotspot .info-hotspot-header {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Matches map-button circular shape */
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    cursor: pointer;
-    -webkit-transition: width 0.3s ease-in-out 0.5s,
-                        border-radius 0.3s ease-in-out 0.5s,
-                        background-color 0.2s ease-in-out,
-                        box-shadow 0.2s ease-in-out;
-    transition: width 0.3s ease-in-out 0.5s,
-                border-radius 0.3s ease-in-out 0.5s,
-                background-color 0.2s ease-in-out,
-                box-shadow 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #c91c49cc;
+  border: solid 1px #eae2de;
+  cursor: pointer;
+  -webkit-transition: width 0.3s ease-in-out 0.5s,
+                      border-radius 0.3s ease-in-out 0.5s;
+  transition: width 0.3s ease-in-out 0.5s,
+              border-radius 0.3s ease-in-out 0.5s;
 }
 
 .mobile .info-hotspot .info-hotspot-header {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
 }
 
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover {
-    width: 260px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.075); /* Matches map-button hover */
-    box-shadow: 0 0 0 1px #eae2de; /* Matches map-button hover */
-    -webkit-transition: width 0.3s ease-in-out,
-                        border-radius 0.3s ease-in-out,
-                        background-color 0.2s ease-in-out,
-                        box-shadow 0.2s ease-in-out;
-    transition: width 0.3s ease-in-out,
-                border-radius 0.3s ease-in-out,
-                background-color 0.2s ease-in-out,
-                box-shadow 0.2s ease-in-out;
+  width: 260px;
+  border-radius: 5px;
+  -webkit-transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-header,
 .desktop.no-touch .info-hotspot.visible .info-hotspot-header:hover {
-    width: 260px;
-    border-radius: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: rgba(255, 255, 255, 0.075); /* Matches map-button hover */
-    box-shadow: 0 0 0 1px #eae2de; /* Matches map-button hover */
-    -webkit-transition: width 0.3s ease-in-out,
-                        border-radius 0.3s ease-in-out,
-                        background-color 0.2s ease-in-out,
-                        box-shadow 0.2s ease-in-out;
-    transition: width 0.3s ease-in-out,
-                border-radius 0.3s ease-in-out,
-                background-color 0.2s ease-in-out,
-                box-shadow 0.2s ease-in-out;
+  width: 260px;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
 .info-hotspot .info-hotspot-icon-wrapper {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex; /* Add flexbox to center the icon */
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
+    display: flex; /* Add flexbox to center the icon */
+  justify-content: center;
+  align-items: center;
 }
 
 .info-hotspot .info-hotspot-icon {
-    width: 60%; /* Matches map-button background-size */
-    height: 60%;
-    margin: 20%; /* Adjusted to center the icon like map-button */
+  height: 60%;
 }
 
 .info-hotspot .info-hotspot-title-wrapper {
-    position: absolute;
-    left: 40px;
-    top: 0;
-    width: 0;
-    height: 40px;
-    padding: 0;
-    overflow: hidden;
-    -webkit-transition: width 0s 0.4s,
-                        padding 0s 0.4s;
-    transition: width 0s 0.4s,
-                padding 0s 0.4s;
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 0;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  -webkit-transition: width 0s 0.4s,
+                      padding 0s 0.4s;
+  transition: width 0s 0.4s,
+              padding 0s 0.4s;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-title-wrapper,
 .desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper {
-    width: 220px;
-    padding: 0 5px;
-    -webkit-transition: width 0s 0.4s,
-                        padding 0s 0.4s;
-    transition: width 0s 0.4s,
-                padding 0s 0.4s;
+  width: 220px;
+  padding: 0 5px;
+  -webkit-transition: width 0s 0.4s,
+                      padding 0s 0.4s;
+  transition: width 0s 0.4s,
+              padding 0s 0.4s;
 }
 
 .info-hotspot .info-hotspot-title-wrapper:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
 }
 
 .info-hotspot .info-hotspot-title {
-    display: inline-block;
-    vertical-align: middle;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+  display: inline-block;
+  vertical-align: middle;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .info-hotspot .info-hotspot-close-wrapper {
-    position: absolute;
-    left: 260px;
-    top: 0;
-    height: 40px;
-    width: 40px;
-    border-top-right-radius: 5px;
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    visibility: hidden;
-    -ms-transform: perspective(200px) rotateY(90deg);
-    -webkit-transform: perspective(200px) rotateY(90deg);
-    transform: perspective(200px) rotateY(90deg);
-    -ms-transform-origin: 0 50% 0;
-    -webkit-transform-origin: 0 50% 0;
-    transform-origin: 0 50% 0;
-    -webkit-transition: -ms-transform 0.3s 0.3s,
-                        -webkit-transform 0.3s 0.3s,
-                        transform 0.3s 0.3s,
-                        visibility 0s 0.6s,
-                        background-color 0.2s ease-in-out;
-    transition: -ms-transform 0.3s 0.3s,
-                -webkit-transform 0.3s 0.3s,
-                transform 0.3s 0.3s,
-                visibility 0s 0.6s,
-                background-color 0.2s ease-in-out;
+  position: absolute;
+  left: 260px;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  border-top-right-radius: 5px;
+  background-color: #eae2de5d;
+  visibility: hidden;
+  -ms-transform: perspective(200px) rotateY(90deg);
+  -webkit-transform: perspective(200px) rotateY(90deg);
+  transform: perspective(200px) rotateY(90deg);
+  -ms-transform-origin: 0 50% 0;
+  -webkit-transform-origin: 0 50% 0;
+  transform-origin: 0 50% 0;
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0.6s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0.6s;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-close-wrapper {
-    visibility: visible;
-    -ms-transform: perspective(200px) rotateY(0deg);
-    -webkit-transform: perspective(200px) rotateY(0deg);
-    transform: perspective(200px) rotateY(0deg);
-    -webkit-transition: -ms-transform 0.3s,
-                        -webkit-transform 0.3s,
-                        transform 0.3s,
-                        visibility 0s 0s,
-                        background-color 0.2s ease-in-out;
-    transition: -ms-transform 0.3s,
-                -webkit-transform 0.3s,
-                transform 0.3s,
-                visibility 0s 0s,
-                background-color 0.2s ease-in-out;
-}
-
-.desktop.no-touch .info-hotspot .info-hotspot-close-wrapper:hover {
-    background-color: rgba(255, 255, 255, 0.075); /* Matches map-button hover */
+  visibility: visible;
+  -ms-transform: perspective(200px) rotateY(0deg);
+  -webkit-transform: perspective(200px) rotateY(0deg);
+  transform: perspective(200px) rotateY(0deg);
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0s;
 }
 
 .info-hotspot .info-hotspot-close-icon {
-    width: 70%;
-    height: 70%;
-    margin: 15%;
+  width: 70%;
+  height: 70%;
+  margin: 15%;
 }
 
 .info-hotspot .info-hotspot-text {
-    position: absolute;
-    width: 300px;
-    height: auto;
-    max-height: 200px;
-    top: 40px;
-    left: 0;
-    padding: 10px;
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    overflow-y: auto;
-    visibility: hidden;
-    -ms-transform: perspective(200px) rotateX(-89.999deg);
-    -webkit-transform: perspective(200px) rotateX(-89.999deg);
-    transform: perspective(200px) rotateX(-89.999deg);
-    -ms-transform-origin: 50% 0 0;
-    -webkit-transform-origin: 50% 0 0;
-    transform-origin: 50% 0 0;
-    -webkit-transition: -ms-transform 0.3s,
-                        -webkit-transform 0.3s,
-                        transform 0.3s,
-                        visibility 0s 0.3s;
-    transition: -ms-transform 0.3s,
-                -webkit-transform 0.3s,
-                transform 0.3s,
-                visibility 0s 0.3s;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  max-height: 200px;
+  top: 40px;
+  left: 0;
+  padding: 10px;
+  background-color: #eae2de;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
+  visibility: hidden;
+  /* rotate(90deg) causes transition flicker on Firefox 58 */
+  -ms-transform: perspective(200px) rotateX(-89.999deg);
+  -webkit-transform: perspective(200px) rotateX(-89.999deg);
+  transform: perspective(200px) rotateX(-89.999deg);
+  -ms-transform-origin: 50% 0 0;
+  -webkit-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0.3s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0.3s;
+
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .desktop .info-hotspot.visible .info-hotspot-text {
-    visibility: visible;
-    -ms-transform: perspective(200px) rotateX(0deg);
-    -webkit-transform: perspective(200px) rotateX(0deg);
-    transform: perspective(200px) rotateX(0deg);
-    -webkit-transition: -ms-transform 0.3s 0.3s,
-                        -webkit-transform 0.3s 0.3s,
-                        transform 0.3s 0.3s,
-                        visibility 0s 0s;
-    transition: -ms-transform 0.3s 0.3s,
-                -webkit-transform 0.3s 0.3s,
-                transform 0.3s 0.3s,
-                visibility 0s 0s;
+  visibility: visible;
+  -ms-transform: perspective(200px) rotateX(0deg);
+  -webkit-transform: perspective(200px) rotateX(0deg);
+  transform: perspective(200px) rotateX(0deg);
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0s;
 }
 
 /* Info hotspot modal */
+
 .desktop .info-hotspot-modal {
-    display: none;
+  display: none;
 }
 
 .info-hotspot-modal {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 11000 !important;
-    background-color: #c91c49cc; /* Matches map-button background */
-    line-height: 1.2em;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: opacity 0.2s ease-in-out 0.5s,
-                        visibility 0s 0.7s;
-    transition: opacity 0.2s ease-in-out 0.5s,
-                visibility 0s 0.7s;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 11000 !important;
+  background-color: #eae2decc;
+  line-height: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s,
+                      visibility 0s 0.7s;
+  transition: opacity 0.2s ease-in-out 0.5s,
+              visibility 0s 0.7s;
 }
 
 .info-hotspot-modal.visible {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 0.2s ease-in-out,
-                        visibility 0s 0s;
-    transition: opacity 0.2s ease-in-out,
-                visibility 0s 0s;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.2s ease-in-out,
+                      visibility 0s 0s;
+  transition: opacity 0.2s ease-in-out,
+              visibility 0s 0s;
 }
 
 .info-hotspot-modal .info-hotspot-header {
-    position: absolute;
-    top: 60px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-    height: 50px;
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out 0.2s;
-    transition: opacity 0.3s ease-in-out 0.2s;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  right: 10px;
+  width: auto;
+  height: 50px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 .info-hotspot-modal.visible .info-hotspot-header {
-    opacity: 1;
-    -webkit-transition: opacity 0.3s ease-in-out 0.2s;
-    transition: opacity 0.3s ease-in-out 0.2s;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
 }
 
 .info-hotspot-modal .info-hotspot-icon-wrapper {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .info-hotspot-modal .info-hotspot-icon {
-    width: 60%; /* Matches map-button background-size */
-    height: 60%;
-    margin: 20%; /* Adjusted to center the icon like map-button */
+  width: 90%;
+  height: 90%;
+  margin: 5%;
 }
 
 .info-hotspot-modal .info-hotspot-title-wrapper {
-    position: absolute;
-    top: 0;
-    left: 50px;
-    right: 50px;
-    width: auto;
-    height: 50px;
-    padding: 0 10px;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  right: 50px;
+  width: auto;
+  height: 50px;
+  padding: 0 10px;
 }
 
 .info-hotspot-modal .info-hotspot-title-wrapper:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
 }
 
 .info-hotspot-modal .info-hotspot-title {
-    display: inline-block;
-    vertical-align: middle;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+  display: inline-block;
+  vertical-align: middle;
+
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .info-hotspot-modal .info-hotspot-close-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  cursor: pointer;
 }
 
 .info-hotspot-modal .info-hotspot-close-icon {
-    width: 70%;
-    height: 70%;
-    margin: 15%;
+  width: 70%;
+  height: 70%;
+  margin: 15%;
 }
 
 .info-hotspot-modal .info-hotspot-text {
-    position: absolute;
-    top: 110px;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: #c91c49cc; /* Matches map-button background */
-    border: solid 1px #eae2de; /* Matches map-button border */
-    overflow-y: auto;
-    opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+  position: absolute;
+  top: 110px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  overflow-y: auto;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .info-hotspot-modal.visible .info-hotspot-text {
-    opacity: 1;
-    -webkit-transition: opacity 0.3s ease-in-out 0.4s;
-    transition: opacity 0.3s ease-in-out 0.4s;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.4s;
+  transition: opacity 0.3s ease-in-out 0.4s;
 }
 
-/* Responsive adjustments to match map-button */
-@media screen and (max-width: 736px) {
-    .info-hotspot .info-hotspot-header {
-        width: 2.5rem; /* Matches map-button */
-        height: 2.5rem;
-        border-radius: 1.25rem;
-    }
+/* Build hotspot */
 
-    .info-hotspot .info-hotspot-icon-wrapper {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .info-hotspot .info-hotspot-icon {
-        width: 55%; /* Matches map-button background-size */
-        height: 55%;
-        margin: 22.5%; /* Adjusted to center */
-    }
+.build-hotspot {
+  line-height: 1.2em;
+  opacity: 0.9;
+  -webkit-transition: opacity 0.2s 0.2s;
+  transition: opacity 0.2s 0.2s;
 }
 
-@media screen and (max-width: 480px) {
-    .info-hotspot .info-hotspot-header {
-        width: 2rem; /* Matches map-button */
-        height: 2rem;
-        border-radius: 1rem;
-    }
-
-    .info-hotspot .info-hotspot-icon-wrapper {
-        width: 2rem;
-        height: 2rem;
-    }
-
-    .info-hotspot .info-hotspot-icon {
-        width: 50%; /* Matches map-button background-size */
-        height: 50%;
-        margin: 25%; /* Adjusted to center */
-    }
+.no-touch .build-hotspot:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
+
+.build-hotspot.visible {
+  opacity: 1;
+}
+
+.build-hotspot .build-hotspot-header {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #2b2d2dcc;
+  border: solid 1px #eae2de;
+  cursor: pointer;
+  -webkit-transition: width 0.3s ease-in-out 0.5s,
+                      border-radius 0.3s ease-in-out 0.5s;
+  transition: width 0.3s ease-in-out 0.5s,
+              border-radius 0.3s ease-in-out 0.5s;
+}
+
+.mobile .build-hotspot .build-hotspot-header {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.desktop.no-touch .build-hotspot .build-hotspot-header:hover {
+  width: 260px;
+  border-radius: 5px;
+  -webkit-transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.desktop .build-hotspot.visible .build-hotspot-header,
+.desktop.no-touch .build-hotspot.visible .build-hotspot-header:hover {
+  width: 260px;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.build-hotspot .build-hotspot-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex; /* Add flexbox to center the icon */
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile .build-hotspot .build-hotspot-icon-wrapper {
+  width: 50px;
+  height: 50px;
+    display: flex; /* Add flexbox to center the icon */
+  justify-content: center;
+  align-items: center;
+}
+
+.build-hotspot .build-hotspot-icon {
+  height: 60%;
+}
+
+.build-hotspot .build-hotspot-title-wrapper {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 0;
+  height: 40px;
+  padding: 0;
+  overflow: hidden;
+  -webkit-transition: width 0s 0.4s,
+                      padding 0s 0.4s;
+  transition: width 0s 0.4s,
+              padding 0s 0.4s;
+}
+
+.desktop .build-hotspot.visible .build-hotspot-title-wrapper,
+.desktop.no-touch .build-hotspot .build-hotspot-header:hover .build-hotspot-title-wrapper {
+  width: 220px;
+  padding: 0 5px;
+  -webkit-transition: width 0s 0.4s,
+                      padding 0s 0.4s;
+  transition: width 0s 0.4s,
+              padding 0s 0.4s;
+}
+
+.build-hotspot .build-hotspot-title-wrapper:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.build-hotspot .build-hotspot-title {
+  display: inline-block;
+  vertical-align: middle;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.build-hotspot .build-hotspot-close-wrapper {
+  position: absolute;
+  left: 260px;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  border-top-right-radius: 5px;
+  background-color: #eae2de5d;
+  visibility: hidden;
+  -ms-transform: perspective(200px) rotateY(90deg);
+  -webkit-transform: perspective(200px) rotateY(90deg);
+  transform: perspective(200px) rotateY(90deg);
+  -ms-transform-origin: 0 50% 0;
+  -webkit-transform-origin: 0 50% 0;
+  transform-origin: 0 50% 0;
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0.6s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0.6s;
+}
+
+.desktop .build-hotspot.visible .build-hotspot-close-wrapper {
+  visibility: visible;
+  -ms-transform: perspective(200px) rotateY(0deg);
+  -webkit-transform: perspective(200px) rotateY(0deg);
+  transform: perspective(200px) rotateY(0deg);
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0s;
+}
+
+.build-hotspot .build-hotspot-close-icon {
+  width: 70%;
+  height: 70%;
+  margin: 15%;
+}
+
+.build-hotspot .build-hotspot-text {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  max-height: 200px;
+  top: 40px;
+  left: 0;
+  padding: 10px;
+  background-color: #eae2de;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
+  visibility: hidden;
+  /* rotate(90deg) causes transition flicker on Firefox 58 */
+  -ms-transform: perspective(200px) rotateX(-89.999deg);
+  -webkit-transform: perspective(200px) rotateX(-89.999deg);
+  transform: perspective(200px) rotateX(-89.999deg);
+  -ms-transform-origin: 50% 0 0;
+  -webkit-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0.3s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0.3s;
+
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.desktop .build-hotspot.visible .build-hotspot-text {
+  visibility: visible;
+  -ms-transform: perspective(200px) rotateX(0deg);
+  -webkit-transform: perspective(200px) rotateX(0deg);
+  transform: perspective(200px) rotateX(0deg);
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0s;
+}
+
+/* Build hotspot modal */
+
+.desktop .build-hotspot-modal {
+  display: none;
+}
+
+.build-hotspot-modal {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 11000 !important;
+  background-color: #eae2decc;
+  line-height: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s,
+                      visibility 0s 0.7s;
+  transition: opacity 0.2s ease-in-out 0.5s,
+              visibility 0s 0.7s;
+}
+
+.build-hotspot-modal.visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.2s ease-in-out,
+                      visibility 0s 0s;
+  transition: opacity 0.2s ease-in-out,
+              visibility 0s 0s;
+}
+
+.build-hotspot-modal .build-hotspot-header {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  right: 10px;
+  width: auto;
+  height: 50px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
+}
+
+.build-hotspot-modal.visible .build-hotspot-header {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
+}
+
+.build-hotspot-modal .build-hotspot-icon-wrapper {
+  width: 50px;
+  height: 50px;
+}
+
+.build-hotspot-modal .build-hotspot-icon {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+
+.build-hotspot-modal .build-hotspot-title-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  right: 50px;
+  width: auto;
+  height: 50px;
+  padding: 0 10px;
+}
+
+.build-hotspot-modal .build-hotspot-title-wrapper:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.build-hotspot-modal .build-hotspot-title {
+  display: inline-block;
+  vertical-align: middle;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.build-hotspot-modal .build-hotspot-close-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  cursor: pointer;
+}
+
+.build-hotspot-modal .build-hotspot-close-icon {
+  width: 70%;
+  height: 70%;
+  margin: 15%;
+}
+
+.build-hotspot-modal .build-hotspot-text {
+  position: absolute;
+  top: 110px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #eae2de;
+  background-color: #eae2decc;
+  overflow-y: auto;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.build-hotspot-modal.visible .build-hotspot-text {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.4s;
+  transition: opacity 0.3s ease-in-out 0.4s;
+}
+
 /* View control buttons */
 
 .viewControlButton {
@@ -846,6 +1156,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   padding: 5px;
   background-color: rgb(103,115,131);
   background-color: #c91c49cc;
+    border: solid 1px #eae2de;
   border-radius: 50%;
 }
 
