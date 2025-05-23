@@ -44,7 +44,7 @@ var APP_DATA = {
           "text": "More questions?"
         }
       ],
-      "buildHotspots": [
+      "relaxHotspots": [
         {
           "yaw": -0.46598861236452827,
           "pitch": 0.03887086279533669,
