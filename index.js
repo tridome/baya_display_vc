@@ -58,11 +58,14 @@
   // Create the "Enter Here" button overlay.
   var enterOverlay = document.createElement('div');
   enterOverlay.classList.add('enter-overlay');
-  enterOverlay.innerHTML = 'Enter Here';
+  var enterButton = document.createElement('div');
+  enterButton.classList.add('enter-button');
+  enterButton.innerHTML = 'Enter Here';
+  enterOverlay.appendChild(enterButton);
   panoElement.appendChild(enterOverlay);
 
   // Remove the overlay when clicked or tapped.
-  enterOverlay.addEventListener('click', function() {
+  enterButton.addEventListener('click', function() {
     enterOverlay.remove();
   });
 
