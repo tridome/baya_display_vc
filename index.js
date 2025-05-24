@@ -1,18 +1,3 @@
-/*
- * Copyright 2016 Google Inc. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 'use strict';
 
 (function() {
@@ -70,6 +55,17 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
+  // Create the "Enter Here" button overlay.
+  var enterOverlay = document.createElement('div');
+  enterOverlay.classList.add('enter-overlay');
+  enterOverlay.innerHTML = 'Enter Here';
+  panoElement.appendChild(enterOverlay);
+
+  // Remove the overlay when clicked or tapped.
+  enterOverlay.addEventListener('click', function() {
+    enterOverlay.remove();
+  });
+
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
@@ -107,7 +103,8 @@
         scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
       });
     }
-        // Create build hotspots with safety check.
+
+    // Create relax hotspots with safety check.
     if (data.relaxHotspots && Array.isArray(data.relaxHotspots)) {
       data.relaxHotspots.forEach(function(hotspot) {
         var element = createRelaxHotspotElement(hotspot);
@@ -194,7 +191,7 @@
   controls.registerMethod('outElement',   new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom',  velocity, friction), true);
 
   function sanitize(s) {
-    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    return s.replace('&', '&').replace('<', '<').replace('>', '>');
   }
 
   function switchScene(scene) {
@@ -260,265 +257,168 @@
   }
 
   function createLinkHotspotElement(hotspot) {
-
-    // Create wrapper element to hold icon and tooltip.
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot');
     wrapper.classList.add('link-hotspot');
-
-    // Create image element.
     var icon = document.createElement('img');
     icon.src = 'img/link.png';
     icon.classList.add('link-hotspot-icon');
-
-    // Set rotation transform.
     var transformProperties = [ '-ms-transform', '-webkit-transform', 'transform' ];
     for (var i = 0; i < transformProperties.length; i++) {
       var property = transformProperties[i];
       icon.style[property] = 'rotate(' + hotspot.rotation + 'rad)';
     }
-
-    // Add click event handler.
     wrapper.addEventListener('click', function() {
       switchScene(findSceneById(hotspot.target));
     });
-
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
-
-    // Create tooltip element.
     var tooltip = document.createElement('div');
     tooltip.classList.add('hotspot-tooltip');
     tooltip.classList.add('link-hotspot-tooltip');
     tooltip.innerHTML = findSceneDataById(hotspot.target).name;
-
     wrapper.appendChild(icon);
     wrapper.appendChild(tooltip);
-
     return wrapper;
   }
 
   function createInfoHotspotElement(hotspot) {
-
-    // Create wrapper element to hold icon and tooltip.
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot');
     wrapper.classList.add('info-hotspot');
-
-    // Create hotspot/tooltip header.
     var header = document.createElement('div');
     header.classList.add('info-hotspot-header');
-
-    // Create image element.
     var iconWrapper = document.createElement('div');
     iconWrapper.classList.add('info-hotspot-icon-wrapper');
     var icon = document.createElement('img');
     icon.src = 'img/info.png';
     icon.classList.add('info-hotspot-icon');
     iconWrapper.appendChild(icon);
-
-    // Create title element.
     var titleWrapper = document.createElement('div');
     titleWrapper.classList.add('info-hotspot-title-wrapper');
     var title = document.createElement('div');
     title.classList.add('info-hotspot-title');
     title.innerHTML = hotspot.title;
     titleWrapper.appendChild(title);
-
-    // Create close element.
     var closeWrapper = document.createElement('div');
     closeWrapper.classList.add('info-hotspot-close-wrapper');
     var closeIcon = document.createElement('img');
     closeIcon.src = 'img/close.png';
     closeIcon.classList.add('info-hotspot-close-icon');
     closeWrapper.appendChild(closeIcon);
-
-    // Construct header element.
     header.appendChild(iconWrapper);
     header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
-
-    // Create text element.
     var text = document.createElement('div');
     text.classList.add('info-hotspot-text');
     text.innerHTML = hotspot.text;
-
-    // Place header and text into wrapper element.
     wrapper.appendChild(header);
     wrapper.appendChild(text);
-
-    // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
     modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
-
     var toggle = function() {
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
     };
-
-    // Show content when hotspot is clicked.
     wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
-
-    // Hide content when close icon is clicked.
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
-
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
-
     return wrapper;
   }
 
   function createBuildHotspotElement(hotspot) {
-
-      // Create wrapper element to hold icon and tooltip.
-      var wrapper = document.createElement('div');
-      wrapper.classList.add('hotspot');
-      wrapper.classList.add('build-hotspot');
-
-      // Create hotspot/tooltip header.
-      var header = document.createElement('div');
-      header.classList.add('build-hotspot-header');
-
-      // Create image element.
-      var iconWrapper = document.createElement('div');
-      iconWrapper.classList.add('build-hotspot-icon-wrapper');
-      var icon = document.createElement('img');
-      icon.src = 'img/build.png'; // Note: You may want to update this to a different icon if needed
-      icon.classList.add('build-hotspot-icon');
-      iconWrapper.appendChild(icon);
-
-      // Create title element.
-      var titleWrapper = document.createElement('div');
-      titleWrapper.classList.add('build-hotspot-title-wrapper');
-      var title = document.createElement('div');
-      title.classList.add('build-hotspot-title');
-      title.innerHTML = hotspot.title;
-      titleWrapper.appendChild(title);
-
-      // Create close element.
-      var closeWrapper = document.createElement('div');
-      closeWrapper.classList.add('build-hotspot-close-wrapper');
-      var closeIcon = document.createElement('img');
-      closeIcon.src = 'img/close.png';
-      closeIcon.classList.add('build-hotspot-close-icon');
-      closeWrapper.appendChild(closeIcon);
-
-      // Construct header element.
-      header.appendChild(iconWrapper);
-      header.appendChild(titleWrapper);
-      header.appendChild(closeWrapper);
-
-      // Create text element.
-      var text = document.createElement('div');
-      text.classList.add('build-hotspot-text');
-      text.innerHTML = hotspot.text;
-
-      // Place header and text into wrapper element.
-      wrapper.appendChild(header);
-      wrapper.appendChild(text);
-
-      // Create a modal for the hotspot content to appear on mobile mode.
-      var modal = document.createElement('div');
-      modal.innerHTML = wrapper.innerHTML;
-      modal.classList.add('build-hotspot-modal');
-      document.body.appendChild(modal);
-
-      var toggle = function() {
-        wrapper.classList.toggle('visible');
-        modal.classList.toggle('visible');
-      };
-
-      // Show content when hotspot is clicked.
-      wrapper.querySelector('.build-hotspot-header').addEventListener('click', toggle);
-
-      // Hide content when close icon is clicked.
-      modal.querySelector('.build-hotspot-close-wrapper').addEventListener('click', toggle);
-
-      // Prevent touch and scroll events from reaching the parent element.
-      // This prevents the view control logic from interfering with the hotspot.
-      stopTouchAndScrollEventPropagation(wrapper);
-
-      return wrapper;
+    var wrapper = document.createElement('div');
+    wrapper.classList.add('hotspot');
+    wrapper.classList.add('build-hotspot');
+    var header = document.createElement('div');
+    header.classList.add('build-hotspot-header');
+    var iconWrapper = document.createElement('div');
+    iconWrapper.classList.add('build-hotspot-icon-wrapper');
+    var icon = document.createElement('img');
+    icon.src = 'img/build.png';
+    icon.classList.add('build-hotspot-icon');
+    iconWrapper.appendChild(icon);
+    var titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('build-hotspot-title-wrapper');
+    var title = document.createElement('div');
+    title.classList.add('build-hotspot-title');
+    title.innerHTML = hotspot.title;
+    titleWrapper.appendChild(title);
+    var closeWrapper = document.createElement('div');
+    closeWrapper.classList.add('build-hotspot-close-wrapper');
+    var closeIcon = document.createElement('img');
+    closeIcon.src = 'img/close.png';
+    closeIcon.classList.add('build-hotspot-close-icon');
+    closeWrapper.appendChild(closeIcon);
+    header.appendChild(iconWrapper);
+    header.appendChild(titleWrapper);
+    header.appendChild(closeWrapper);
+    var text = document.createElement('div');
+    text.classList.add('build-hotspot-text');
+    text.innerHTML = hotspot.text;
+    wrapper.appendChild(header);
+    wrapper.appendChild(text);
+    var modal = document.createElement('div');
+    modal.innerHTML = wrapper.innerHTML;
+    modal.classList.add('build-hotspot-modal');
+    document.body.appendChild(modal);
+    var toggle = function() {
+      wrapper.classList.toggle('visible');
+      modal.classList.toggle('visible');
+    };
+    wrapper.querySelector('.build-hotspot-header').addEventListener('click', toggle);
+    modal.querySelector('.build-hotspot-close-wrapper').addEventListener('click', toggle);
+    stopTouchAndScrollEventPropagation(wrapper);
+    return wrapper;
   }
 
   function createRelaxHotspotElement(hotspot) {
-
-    // Create wrapper element to hold icon and tooltip.
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot');
     wrapper.classList.add('relax-hotspot');
-
-    // Create hotspot/tooltip header.
     var header = document.createElement('div');
     header.classList.add('relax-hotspot-header');
-
-    // Create image element.
     var iconWrapper = document.createElement('div');
     iconWrapper.classList.add('relax-hotspot-icon-wrapper');
     var icon = document.createElement('img');
     icon.src = 'img/relax.png';
     icon.classList.add('relax-hotspot-icon');
     iconWrapper.appendChild(icon);
-
-    // Create title element.
     var titleWrapper = document.createElement('div');
     titleWrapper.classList.add('relax-hotspot-title-wrapper');
     var title = document.createElement('div');
     title.classList.add('relax-hotspot-title');
     title.innerHTML = hotspot.title;
     titleWrapper.appendChild(title);
-
-    // Create close element.
     var closeWrapper = document.createElement('div');
     closeWrapper.classList.add('relax-hotspot-close-wrapper');
     var closeIcon = document.createElement('img');
     closeIcon.src = 'img/close.png';
     closeIcon.classList.add('relax-hotspot-close-icon');
     closeWrapper.appendChild(closeIcon);
-
-    // Construct header element.
     header.appendChild(iconWrapper);
     header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
-
-    // Create text element.
     var text = document.createElement('div');
     text.classList.add('relax-hotspot-text');
     text.innerHTML = hotspot.text;
-
-    // Place header and text into wrapper element.
     wrapper.appendChild(header);
     wrapper.appendChild(text);
-
-    // Create a modal for the hotspot content to appear on mobile mode.
     var modal = document.createElement('div');
     modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('relax-hotspot-modal');
     document.body.appendChild(modal);
-
     var toggle = function() {
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
     };
-
-    // Show content when hotspot is clicked.
     wrapper.querySelector('.relax-hotspot-header').addEventListener('click', toggle);
-
-    // Hide content when close icon is clicked.
     modal.querySelector('.relax-hotspot-close-wrapper').addEventListener('click', toggle);
-
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
-
     return wrapper;
-}
+  }
 
-  // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
     var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
                       'wheel', 'mousewheel' ];

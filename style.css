@@ -60,7 +60,6 @@ a, a:hover, a:active, a:visited {
   right: 50px;
 }
 
-/* If there is a fullscreen button the title bar must make space for it */
 body.fullscreen-enabled #titleBar {
   right: 80px;
 }
@@ -69,7 +68,6 @@ body.fullscreen-enabled.mobile #titleBar {
   right: 100px;
 }
 
-/* If there are multiple scenes the title bar must make space for the scene list toggle */
 body.multiple-scenes #titleBar {
   left: 40px;
 }
@@ -169,7 +167,6 @@ body.fullscreen-enabled #fullscreenToggle {
   height: 50px;
 }
 
-/* If there is a fullscreen button, autorotate must placed a bit to the left */
 body.fullscreen-enabled #autorotateToggle {
   right: 40px;
 }
@@ -282,7 +279,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   width: 100%;
   background-color: rgb(58,68,84);
   background-color: #eae2decc;
-    text-transform: uppercase;
+  text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 0.8rem;
   line-height: 2;
@@ -345,8 +342,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   display: none;
 }
 
-/* Link hotspot */
-
 .link-hotspot {
   width: 60px;
   height: 60px;
@@ -378,35 +373,23 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .link-hotspot-tooltip {
   position: absolute;
   left: 100%;
-  top: 14px; /* ( 60 - (16 + 2*8) ) / 2 */
-
+  top: 14px;
   margin-left: 3px;
-
   font-size: 16px;
-
   max-width: 300px;
-
   padding: 8px 10px;
-
   border-radius: 5px;
-
   background-color: rgb(58,68,84);
   background-color: #a59c95cc;
-
   color: #fff;
-
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-
   cursor: pointer;
-
   opacity: 0;
-
   -ms-transform: translateX(-8px);
   -webkit-transform: translateX(-8px);
   transform: translateX(-8px);
-
   -webkit-transition: -ms-transform 0.3s,
                       -webkit-transform 0.3s,
                       transform 0.3s,
@@ -418,7 +401,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 }
 
 .mobile .link-hotspot {
-  top: 19px; /* ( 70 - (16 + 2*8) ) / 2 */
+  top: 19px;
 }
 
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
@@ -428,23 +411,21 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transform: translateX(0);
 }
 
-/* Prevent tooltip from triggering */
 .link-hotspot-tooltip {
   pointer-events: none;
 }
+
 .no-touch .link-hotspot:hover .link-hotspot-tooltip {
   pointer-events: all;
 }
 
-/* Fallback mode without pointer-events (IE8-10) */
 .tooltip-fallback .link-hotspot-tooltip {
   display: none;
 }
+
 .no-touch .tooltip-fallback .link-hotspot:hover .link-hotspot-tooltip {
   display: block;
 }
-
-/* Info hotspot */
 
 .info-hotspot {
   line-height: 1.2em;
@@ -503,7 +484,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot .info-hotspot-icon-wrapper {
   width: 40px;
   height: 40px;
-  display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -511,7 +492,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .mobile .info-hotspot .info-hotspot-icon-wrapper {
   width: 50px;
   height: 50px;
-    display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -624,7 +605,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-bottom-left-radius: 5px;
   overflow-y: auto;
   visibility: hidden;
-  /* rotate(90deg) causes transition flicker on Firefox 58 */
   -ms-transform: perspective(200px) rotateX(-89.999deg);
   -webkit-transform: perspective(200px) rotateX(-89.999deg);
   transform: perspective(200px) rotateX(-89.999deg);
@@ -639,7 +619,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               -webkit-transform 0.3s,
               transform 0.3s,
               visibility 0s 0.3s;
-
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
@@ -660,8 +639,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               transform 0.3s 0.3s,
               visibility 0s 0s;
 }
-
-/* Info hotspot modal */
 
 .desktop .info-hotspot-modal {
   display: none;
@@ -745,7 +722,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .info-hotspot-modal .info-hotspot-title {
   display: inline-block;
   vertical-align: middle;
-
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
@@ -782,7 +758,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
@@ -794,8 +769,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   -webkit-transition: opacity 0.3s ease-in-out 0.4s;
   transition: opacity 0.3s ease-in-out 0.4s;
 }
-
-/* Build hotspot */
 
 .build-hotspot {
   line-height: 1.2em;
@@ -854,7 +827,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .build-hotspot .build-hotspot-icon-wrapper {
   width: 40px;
   height: 40px;
-  display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -862,7 +835,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .mobile .build-hotspot .build-hotspot-icon-wrapper {
   width: 50px;
   height: 50px;
-    display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -975,7 +948,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-bottom-left-radius: 5px;
   overflow-y: auto;
   visibility: hidden;
-  /* rotate(90deg) causes transition flicker on Firefox 58 */
   -ms-transform: perspective(200px) rotateX(-89.999deg);
   -webkit-transform: perspective(200px) rotateX(-89.999deg);
   transform: perspective(200px) rotateX(-89.999deg);
@@ -990,7 +962,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               -webkit-transform 0.3s,
               transform 0.3s,
               visibility 0s 0.3s;
-
   -moz-user-select: text;
   -webkit-user-select: text;
   -ms-user-select: text;
@@ -1011,8 +982,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               transform 0.3s 0.3s,
               visibility 0s 0s;
 }
-
-/* Build hotspot modal */
 
 .desktop .build-hotspot-modal {
   display: none;
@@ -1144,8 +1113,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out 0.4s;
 }
 
-/* Relax hotspot */
-
 .relax-hotspot {
   line-height: 1.2em;
   opacity: 0.9;
@@ -1203,7 +1170,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .relax-hotspot .relax-hotspot-icon-wrapper {
   width: 40px;
   height: 40px;
-  display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -1211,7 +1178,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .mobile .relax-hotspot .relax-hotspot-icon-wrapper {
   width: 50px;
   height: 50px;
-    display: flex; /* Add flexbox to center the icon */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -1324,7 +1291,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   border-bottom-left-radius: 5px;
   overflow-y: auto;
   visibility: hidden;
-  /* rotate(90deg) causes transition flicker on Firefox 58 */
   -ms-transform: perspective(200px) rotateX(-89.999deg);
   -webkit-transform: perspective(200px) rotateX(-89.999deg);
   transform: perspective(200px) rotateX(-89.999deg);
@@ -1359,8 +1325,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
               transform 0.3s 0.3s,
               visibility 0s 0s;
 }
-
-/* Relax hotspot modal */
 
 .desktop .relax-hotspot-modal {
   display: none;
@@ -1492,8 +1456,6 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   transition: opacity 0.3s ease-in-out 0.4s;
 }
 
-/* View control buttons */
-
 .viewControlButton {
   display: none;
   position: absolute;
@@ -1504,7 +1466,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   padding: 5px;
   background-color: rgb(103,115,131);
   background-color: #c91c49cc;
-    border: solid 1px #eae2de;
+  border: solid 1px #eae2de;
   border-radius: 50%;
 }
 
@@ -1512,7 +1474,6 @@ body.view-control-buttons .viewControlButton {
   display: block;
 }
 
-/* Hide controls when width is too small */
 @media (max-width: 600px) {
   body.view-control-buttons .viewControlButton {
     display: none;
@@ -1527,22 +1488,45 @@ body.view-control-buttons .viewControlButton {
   height: 30px;
 }
 
-/* Center is at margin-left: -20px */
 .viewControlButton-1 {
   margin-left: -145px;
 }
+
 .viewControlButton-2 {
   margin-left: -95px;
 }
+
 .viewControlButton-3 {
   margin-left: -45px;
 }
+
 .viewControlButton-4 {
   margin-left: 5px;
 }
+
 .viewControlButton-5 {
   margin-left: 55px;
 }
+
 .viewControlButton-6 {
   margin-left: 105px;
+}
+
+/* Enter Here overlay */
+.enter-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "Montserrat", Arial, sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 12000;
 }
